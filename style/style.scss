@@ -28,6 +28,7 @@ body {
   &:nth-child(4) {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
+    cursor: pointer;
   }
 }
 
@@ -44,6 +45,7 @@ main {
     padding: 5px 30px;
     font-size: 30px;
     .main__nav-item {
+      cursor: pointer;
       text-align: center;
       padding: 10px;
       margin-bottom: 5px;
@@ -59,6 +61,7 @@ main {
       gap: 15px;
       color: rgba(0, 0, 0, 0.388);
       .filter__name {
+        cursor: pointer;
         &:first-child {
           color: black;
         }
@@ -72,6 +75,7 @@ main {
     grid-template-columns: 1fr 1fr;
     .project {
       .project__img {
+        cursor: pointer;
         max-height: 1000px;
         width: 100%;
         margin-bottom: 10px;

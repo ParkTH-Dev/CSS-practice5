@@ -136,11 +136,19 @@ body {
   grid-template: 50px 1fr 50px/50px 1fr 50px;
   align-items: center;
   justify-items: center;
+  background-color: #f4f3ef;
+  color: #2c3639;
 }
 
 .bar {
   font-weight: 600;
   font-size: 20px;
+  transition: all 0.3s ease;
+  color: #2c3639;
+}
+.bar:hover {
+  color: #a27b5c;
+  transform: scale(1.1);
 }
 .bar:nth-child(1) {
   grid-column: 2/3;
@@ -150,10 +158,16 @@ body {
   grid-row: 2/3;
   transform: rotateZ(-90deg);
 }
+.bar:nth-child(2):hover {
+  transform: rotateZ(-90deg) scale(1.1);
+}
 .bar:nth-child(3) {
   grid-column: 3/4;
   grid-row: 2/3;
   transform: rotateZ(90deg);
+}
+.bar:nth-child(3):hover {
+  transform: rotateZ(90deg) scale(1.1);
 }
 .bar:nth-child(4) {
   grid-column: 2/3;
@@ -166,8 +180,17 @@ main {
   grid-row: 2/3;
   height: 100%;
   width: 100%;
-  border: 2.5px solid black;
+  border: 1px solid #dcd7c9;
   overflow-y: scroll;
+  background-color: #f4f3ef;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+main::-webkit-scrollbar {
+  width: 8px;
+}
+main::-webkit-scrollbar-thumb {
+  background-color: #c7c0b5;
+  border-radius: 4px;
 }
 main .main__nav {
   display: flex;
@@ -180,7 +203,15 @@ main .main__nav .main__nav-item {
   text-align: center;
   padding: 10px;
   margin-bottom: 5px;
-  border-bottom: 2.5px solid black;
+  border-bottom: 1px solid #dcd7c9;
+  transition: all 0.3s ease;
+  color: #3f4e4f;
+  letter-spacing: 1px;
+}
+main .main__nav .main__nav-item:hover {
+  background-color: #dcd7c9;
+  color: #a27b5c;
+  transform: translateX(10px);
 }
 main .filter {
   padding: 15px 30px;
@@ -190,19 +221,33 @@ main .filter {
 main .filter div {
   display: flex;
   gap: 15px;
-  color: rgba(0, 0, 0, 0.388);
+  color: #3f4e4f;
 }
 main .filter div .filter__name {
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+main .filter div .filter__name:hover {
+  color: #a27b5c;
+  transform: translateY(-2px);
 }
 main .filter div .filter__name:first-child {
-  color: black;
+  color: #2c3639;
 }
 main .projects {
   display: grid;
   padding: 15px;
   gap: 30px;
   grid-template-columns: 1fr 1fr;
+}
+main .projects .project {
+  transition: all 0.3s ease;
+}
+main .projects .project:hover {
+  transform: translateY(-5px);
+}
+main .projects .project:hover .project__name {
+  color: #a27b5c;
 }
 main .projects .project .project__img {
   cursor: pointer;
@@ -211,7 +256,14 @@ main .projects .project .project__img {
   margin-bottom: 10px;
   -o-object-fit: cover;
      object-fit: cover;
+  transition: all 0.3s ease;
+}
+main .projects .project .project__img:hover {
+  filter: sepia(20%) brightness(0.95);
 }
 main .projects .project .project__name {
   font-size: 20px;
+  transition: all 0.3s ease;
+  color: #3f4e4f;
+  letter-spacing: 0.5px;
 }

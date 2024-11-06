@@ -1,5 +1,13 @@
 @import "./reset.scss";
 
+$primary-color: #2c3639;
+$secondary-color: #3f4e4f;
+$accent-color: #a27b5c;
+$text-color: #2c3639;
+$light-gray: #dcd7c9;
+$hover-gray: #c7c0b5;
+$white: #f4f3ef;
+
 body {
   height: 100vh;
   width: 100%;
@@ -7,10 +15,21 @@ body {
   grid-template: 50px 1fr 50px / 50px 1fr 50px;
   align-items: center;
   justify-items: center;
+  background-color: $white;
+  color: $text-color;
 }
+
 .bar {
   font-weight: 600;
   font-size: 20px;
+  transition: all 0.3s ease;
+  color: $primary-color;
+
+  &:hover {
+    color: $accent-color;
+    transform: scale(1.1);
+  }
+
   &:nth-child(1) {
     grid-column: 2 / 3;
   }
@@ -18,12 +37,17 @@ body {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
     transform: rotateZ(-90deg);
+    &:hover {
+      transform: rotateZ(-90deg) scale(1.1);
+    }
   }
-
   &:nth-child(3) {
     grid-column: 3 / 4;
     grid-row: 2 / 3;
     transform: rotateZ(90deg);
+    &:hover {
+      transform: rotateZ(90deg) scale(1.1);
+    }
   }
   &:nth-child(4) {
     grid-column: 2 / 3;
@@ -37,19 +61,41 @@ main {
   grid-row: 2 / 3;
   height: 100%;
   width: 100%;
-  border: 2.5px solid black;
+  border: 1px solid $light-gray;
   overflow-y: scroll;
+  background-color: $white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $hover-gray;
+    border-radius: 4px;
+  }
+
   .main__nav {
     display: flex;
     flex-direction: column;
     padding: 5px 30px;
     font-size: 30px;
+
     .main__nav-item {
       cursor: pointer;
       text-align: center;
       padding: 10px;
       margin-bottom: 5px;
-      border-bottom: 2.5px solid black;
+      border-bottom: 1px solid $light-gray;
+      transition: all 0.3s ease;
+      color: $secondary-color;
+      letter-spacing: 1px;
+
+      &:hover {
+        background-color: $light-gray;
+        color: $accent-color;
+        transform: translateX(10px);
+      }
     }
   }
   .filter {
@@ -59,11 +105,18 @@ main {
     div {
       display: flex;
       gap: 15px;
-      color: rgba(0, 0, 0, 0.388);
+      color: $secondary-color;
       .filter__name {
         cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: $accent-color;
+          transform: translateY(-2px);
+        }
+
         &:first-child {
-          color: black;
+          color: $primary-color;
         }
       }
     }
@@ -74,15 +127,34 @@ main {
     gap: 30px;
     grid-template-columns: 1fr 1fr;
     .project {
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+
+        .project__name {
+          color: $accent-color;
+        }
+      }
+
       .project__img {
         cursor: pointer;
         max-height: 1000px;
         width: 100%;
         margin-bottom: 10px;
         object-fit: cover;
+        transition: all 0.3s ease;
+
+        &:hover {
+          filter: sepia(20%) brightness(0.95);
+        }
       }
+
       .project__name {
         font-size: 20px;
+        transition: all 0.3s ease;
+        color: $secondary-color;
+        letter-spacing: 0.5px;
       }
     }
   }
